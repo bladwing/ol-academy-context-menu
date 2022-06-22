@@ -1,30 +1,40 @@
 import React from "react";
-import "./App.scss";
-import ContextMenu from "./component/ContextMenu";
 
+import Container from "./components/Container";
+
+import "./App.scss";
+
+const menuItems = [
+  {
+    text: "remove",
+    onClick: () => {
+      console.log("remove text");
+    },
+  },
+  {
+    text: "edit",
+    onClick: () => {
+      console.log("edit text");
+    },
+  },
+];
 function App() {
   return (
-    <ul>
-      <h1>This is LI!!</h1>
-      {[
-        'This is 1 "li"',
-        'This is 2 "li"',
-        'This is 3 "li"',
-        'This is 4 "li"',
-      ].map((li) => {
-        return (
-          <ContextMenu
-            key={li}
-            buttons={[
-              { label: "შეცვლა", onClick: (e) => console.log(`შეცვლა ${li}`)},
-              { label: "წაშლა", onClick: (e) => console.log(`წაშლა ${li}`) },
-            ]}
-          >
-            <li className="li">{li}</li>
-          </ContextMenu>
-        );
-      })}
-    </ul>
+    <div className="app">
+      <div className="containers">
+        <div className="containers__item">
+          <Container menuItems={menuItems}>Container 1</Container>
+        </div>
+
+        <div className="containers__item">
+          <Container menuItems={menuItems}>Container 2</Container>
+        </div>
+
+        <div className="containers__item">
+          <Container menuItems={menuItems}>Container 3</Container>
+        </div>
+      </div>
+    </div>
   );
 }
 
