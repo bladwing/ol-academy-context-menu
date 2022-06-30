@@ -1,41 +1,30 @@
-import React from "react";
+import React, { useRef } from 'react';
+import styled from 'styled-components';
+import './App.scss'
 
-import Container from "./components/Container";
+import MyComponent from './components/MyComponent';
+import OutsideContext from './components/OutsideContext';
 
-import "./App.scss";
+const Container = styled.div`
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white; 
+`;
 
-const menuItems = [
-  {
-    text: "remove",
-    onClick: () => {
-      console.log("remove text");
-    },
-  },
-  {
-    text: "edit",
-    onClick: () => {
-      console.log("edit text");
-    },
-  },
-];
-function App() {
-  return (
-    <div className="app">
-      <div className="containers">
-        <div className="containers__item">
-          <Container menuItems={menuItems}>Container 1</Container>
-        </div>
+export default function App() {
+	const containerRef = useRef(null);
 
-        <div className="containers__item">
-          <Container menuItems={menuItems}>Container 2</Container>
-        </div>
 
-        <div className="containers__item">
-          <Container menuItems={menuItems}>Container 3</Container>
-        </div>
-      </div>
-    </div>
-  );
+	return (
+		<Container ref={containerRef}>
+      <h2>Welcome to the Context Menu world</h2>
+			<OutsideContext.Provider value={containerRef}>
+				<MyComponent />
+			</OutsideContext.Provider>
+		</Container>
+	);
 }
-
-export default App;
