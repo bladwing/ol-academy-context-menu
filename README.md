@@ -1,10 +1,14 @@
-კონტექსტური მენიუ - React...
-გამოყენებულია:
+# კონტექსტური მენიუ - React...
 
-createContext
+
+გამოყენებულია: 
+
+`createContext `
 
 https://en.reactjs.org/docs/context.html
 
-styled-components
+`styled-components`
 
 https://styled-components.com/
+
+
