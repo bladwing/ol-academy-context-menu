@@ -77,7 +77,7 @@ export default function MyComponent() {
           close={onClose}
         >
           <Img src={IsSparta} alt="sparta" />
-          <H1>This is.... Cotext Menu</H1>
+          <H1>This is.... Context Menu</H1>
           <Item onClick={onItemClick.bind(null, "This is... Edit....")}>
             {" "}
             შეცვლა{" "}
